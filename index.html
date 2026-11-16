@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippine Weather Monitoring System</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="brand">
+            <div class="brand-icon">☀</div>
+            <div>
+                <h1>Philippine Weather</h1>
+                <p>WEATHER MONITORING SYSTEM</p>
+            </div>
+        </div>
+
+        <div class="header-controls">
+            <input type="password" id="apiKey" placeholder="Enter OpenWeather API Key">
+            <button id="loadWeather">Load Weather</button>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <section class="map-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Weather Map</h2>
+                    <p>Explore weather conditions across the Philippines</p>
+                </div>
+                <span class="live-indicator">● LIVE MAP</span>
+            </div>
+
+            <div id="map"></div>
+
+            <div class="map-footer">
+                <span>Click anywhere on the map to view local weather</span>
+                <span id="status">Waiting for API key...</span>
+            </div>
+        </section>
+
+        <aside class="information-panel">
+
+            <div id="dashboardView" class="information-view">
+                <div class="panel-heading">
+                    <span class="eyebrow">PHILIPPINE OVERVIEW</span>
+                    <h2>Weather Dashboard</h2>
+                    <p>Current weather summaries from monitored cities</p>
+                </div>
+
+                <div class="overview-grid">
+                    <div class="info-card">
+                        <span>Temperature</span>
+                        <strong id="temperature">--°C</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Humidity</span>
+                        <strong id="humidity">--%</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Wind Speed</span>
+                        <strong id="wind">-- m/s</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Pressure</span>
+                        <strong id="pressure">-- hPa</strong>
+                    </div>
+                </div>
+
+                <div class="overview-message">
+                    <div class="message-icon">⌖</div>
+                    <h3>Select a Location</h3>
+                    <p>Click any point on the Philippine map to discover its current weather conditions and local time.</p>
+                </div>
+
+                <div class="monitored-cities">
+                    <h3>Monitored Cities</h3>
+                    <div id="weatherDetails"></div>
+                </div>
+            </div>
+
+            <div id="locationView" class="information-view hidden">
+                <button id="backToDashboard" class="back-button">
+                    ← Back to Dashboard
+                </button>
+
+                <div class="location-heading">
+                    <span class="eyebrow">SELECTED LOCATION</span>
+                    <h2 id="selectedCity">Location Details</h2>
+                    <p id="weatherDescription">Waiting for weather information...</p>
+                </div>
+
+                <div class="location-temperature">
+                    <strong id="locationTemperature">--°C</strong>
+                    <span>Current Temperature</span>
+                </div>
+
+                <div class="location-grid">
+                    <div class="info-card">
+                        <span>Feels Like</span>
+                        <strong id="feelsLike">--°C</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Humidity</span>
+                        <strong id="locationHumidity">--%</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Wind Speed</span>
+                        <strong id="locationWind">-- m/s</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Pressure</span>
+                        <strong id="locationPressure">-- hPa</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Visibility</span>
+                        <strong id="visibility">-- km</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Cloud Coverage</span>
+                        <strong id="clouds">--%</strong>
+                    </div>
+                </div>
+
+                <div class="time-card">
+                    <span>LOCAL TIME</span>
+                    <strong id="localTime">--</strong>
+                    <p id="timezone">--</p>
+                </div>
+
+                <div class="sun-info">
+                    <div>
+                        <span>Sunrise</span>
+                        <strong id="sunrise">--</strong>
+                    </div>
+                    <div>
+                        <span>Sunset</span>
+                        <strong id="sunset">--</strong>
+                    </div>
+                </div>
+
+                <div class="coordinates-card">
+                    <span>LOCATION COORDINATES</span>
+                    <p id="coordinates">--</p>
+                </div>
+            </div>
+
+        </aside>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
